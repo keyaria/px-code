@@ -16,3 +16,7 @@
 - Copy repo to local Computer
 - Go to repo in terminal
 - Run `npx ts-node solution.ts`
+
+### Explanation
+- Project took about 30 minutes to set up and go through solution
+- Using JS Set allows to remove duplicates and use max function
