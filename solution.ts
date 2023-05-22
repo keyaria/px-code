@@ -3,15 +3,34 @@
 * Returns: third largest Number
 */
 
-let thirdLargestNumber = function(numsArray: Array<number>, n: number){
+let thirdLargestNumber = function(numsArray: Array<number>, n: number): number{
    
-    let firstLarge, secLarge, thirdLarge = 0;
+    let firstLarge = 0, secLarge = 0, thirdLarge = 0;
 
     //Sort The array
+    numsArray.sort() // Logn
 
     //Loop through array storing the 1,2,3 largest
+    for (let i = 0; i < numsArray.length; i++) {
+        if (numsArray[i] > firstLarge) {
 
-    //return the thirdLarge variable
+            secLarge = firstLarge;
+            firstLarge = numsArray[i];
+
+        } else if (numsArray[i] > secLarge) {
+            
+            thirdLarge = secLarge;
+            secLarge = numsArray[i];
+
+        } else if (numsArray[i] > thirdLarge) {
+            thirdLarge = numsArray[i];
+        }
+        console.log(firstLarge , secLarge , thirdLarge)
+    }
+    // return the thirdLarge variable
+    return thirdLarge
+
+    
 }
 
 
