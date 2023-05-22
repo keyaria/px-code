@@ -11,3 +11,8 @@
 2. The Array is unsorted
 3. The Array Size n is n > 3
 4. The Array contains negative numbers
+
+### How To Run
+- Copy repo to local Computer
+- Go to repo in terminal
+- Run `npx ts-node solution.ts`
