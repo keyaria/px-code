@@ -1,35 +1,28 @@
 /*
 * Description: Takes an array of Integers and the size n of array
 * Returns: third largest Number
+* Complexity: O(n)
 */
 
 let thirdLargestNumber = function(numsArray: Array<number>, n: number): number{
    
-    let firstLarge = 0, secLarge = 0, thirdLarge = 0;
-
-    //Sort The array
-    numsArray.sort() // Logn
+    // Use Set as remove duplicates and sort is logN
+    let arr = new Set<number>(numsArray)
 
     //Loop through array storing the 1,2,3 largest
-    for (let i = 0; i < numsArray.length; i++) {
-        if (numsArray[i] > firstLarge) {
+    const firstLarge = Math.max(...arr);
 
-            secLarge = firstLarge;
-            firstLarge = numsArray[i];
+    //Base Case: just in case
+    if (arr.size < 3) return firstLarge;
 
-        } else if (numsArray[i] > secLarge) {
-            
-            thirdLarge = secLarge;
-            secLarge = numsArray[i];
+    arr.delete(firstLarge);
 
-        } else if (numsArray[i] > thirdLarge) {
-            thirdLarge = numsArray[i];
-        }
-        console.log(firstLarge , secLarge , thirdLarge)
-    }
+    const secLarge = Math.max(...arr);
+    arr.delete(secLarge); 
+    
     // return the thirdLarge variable
-    return thirdLarge
-
+    return Math.max(...arr);
+   
     
 }
 
@@ -39,7 +32,7 @@ function Main() {
     //Test Cases
     console.log("Expected: 3, Actual: ", thirdLargestNumber([10, -2, 5, -6, 3], 5))
 
-    console.log("Expected: 13, Actual: ", thirdLargestNumber([4, 1, 13], 3))
+    console.log("Expected: 1, Actual: ", thirdLargestNumber([4, 1, 13], 3))
 
     console.log("Expected: 5, Actual: ", thirdLargestNumber([3, 3, 5, 5, 32, 0, 14], 7))
 
